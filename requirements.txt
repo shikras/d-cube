@@ -1,0 +1,4 @@
+numpy
+pycocotools
+cv2
+tqdm

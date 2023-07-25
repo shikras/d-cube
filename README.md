@@ -9,7 +9,7 @@
     <br />
     <a href="doc.md"><strong> [Doc 📚]</strong></a>
     <a href="https://huggingface.co/datasets/zbrl/d-cube"><strong> [HuggingFace 🤗]</strong></a>
-    <a href="#"><strong> [Papers 📄] »</strong></a>
+    <a href="https://arxiv.org/pdf/2307.12813.pdf"><strong> [Papers 📄] »</strong></a>
     <br />
   </p>
 </p>
@@ -19,6 +19,8 @@ Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a nex
 
 
 # News
+[07/25/2023] The [paper preprint](https://arxiv.org/abs/2307.12813) of *Exposing the Troublemakers in Described Object Detection*, introducing the DOD task and the $D^3$ dataset, is available on arxiv. Check it out!
+
 [07/18/2023] We have released our Description Detection Dataset ($D^3$) and the first version of $D^3$ toolbox. You can download it now for your project.
 
 # Contents
@@ -29,7 +31,7 @@ Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a nex
 
 # Task and Dataset Highlight
 
-The $D^3$ dataset is meant for the Description Object Detection (DOD) task. In the image below we show the difference between Referring Expression Comprehension (REC), Object Detection/Open-Vocabulary Detection (OVD) and Described Object Detection (DOD). OVD detect object based on category name, and each category can have zero to multiple instances; REC grounds one region based on a language description, whether the object truly exits or not; DOD detect all instances on each image in the dataset, based on a flexible reference.
+The $D^3$ dataset is meant for the Described Object Detection (DOD) task. In the image below we show the difference between Referring Expression Comprehension (REC), Object Detection/Open-Vocabulary Detection (OVD) and Described Object Detection (DOD). OVD detect object based on category name, and each category can have zero to multiple instances; REC grounds one region based on a language description, whether the object truly exits or not; DOD detect all instances on each image in the dataset, based on a flexible reference.
 
 ![Dataset Highlight](assets/teaser.png "Highlight of the task & dataset")
 
@@ -79,12 +81,12 @@ img_path = img_info[0]["file_name"]  # obtain image path so you can load it and 
 ```
 
 # Citation
-If you use our $D^3$ dataset, this toolbox, or otherwise find our work valuable, please cite our paper:
+If you use our $D^3$ dataset, this toolbox, or otherwise find our work valuable, please cite [our paper](https://arxiv.org/abs/2307.12813):
 ```bibtex
 @article{xie2023DOD,
   title={Exposing the Troublemakers in Described Object Detection},
   author={Xie, Chi and Zhang, Zhao and Wu, Yixuan and Zhu, Feng and Zhao, Rui and Liang, Shuang},
-  journal={arXiv preprint},
+  journal={arXiv preprint arXiv:2307.12813},
   year={2023}
 }
 ```

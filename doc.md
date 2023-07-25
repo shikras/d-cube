@@ -14,9 +14,9 @@
 from d_cube import D3
 # init a dataset instance
 d3 = D3(IMG_ROOT, PKL_ANNO_PATH)
-img_ids = d3.get_img_ids()  # get the image ids in the dataset
-img_info = d3.load_imgs(img_ids)  # load some images by passing a list containing some image ids
-img_path = img_info[0]["file_name"]  # obtain image path so you can load it and inference
+all_img_ids = d3.get_img_ids()  # get the image ids in the dataset
+all_img_info = d3.load_imgs(all_img_ids)  # load images by passing a list containing some image ids
+img_path = all_img_info[0]["file_name"]  # obtain one image path so you can load it and inference
 # then you can load the image as input for your model
 
 group_ids = d3.get_group_ids(img_ids=[img_id])  # get the group ids by passing anno ids, image ids, etc.

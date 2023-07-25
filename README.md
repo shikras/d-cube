@@ -55,12 +55,15 @@ There are three ways to install $D^3$ toolbox, and the third one (with huggingfa
 ```bash
 pip install ddd-dataset
 ```
+
 ## Install from source
 ```bash
 git clone https://github.com/shikra/d-cube.git
 # option 1: install it as a python package
 cd d-cube
 python -m pip install .
+# done
+
 # option 2: just put the d-cube/d_cube directory in the root directory of your local repository
 ```
 
@@ -77,9 +80,9 @@ Here is a quick example of how to use $D^3$.
 ```python
 from d_cube import D3
 d3 = D3(IMG_ROOT, PKL_ANNO_PATH)
-img_ids = d3.get_img_ids()  # get the image ids in the dataset
-img_info = d3.load_imgs(img_ids)  # load images by passing a list of some image ids
-img_path = img_info[0]["file_name"]  # obtain image path so you can load it and inference
+all_img_ids = d3.get_img_ids()  # get the image ids in the dataset
+all_img_info = d3.load_imgs(all_img_ids)  # load images by passing a list of some image ids
+img_path = all_img_info[0]["file_name"]  # obtain one image path so you can load it and inference
 ```
 
 # Citation

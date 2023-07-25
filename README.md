@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="#">
-<img src="assets/d-cube_logo.png" alt="Logo" width="310"></a>
+<img src=".assets/d-cube_logo.png" alt="Logo" width="310"></a>
   <h4 align="center">A detection dataset with class names characterized by intricate and flexible expressions</h4>
     <p align="center">
     The repo is the toolbox for <b>D<sup>3</sup></b>
@@ -19,6 +19,8 @@ Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a nex
 
 
 # News
+[07/25/2023] This toolkit is available on PyPI now. You can install this repo with `pip install ddd-dataset`.
+
 [07/25/2023] The [paper preprint](https://arxiv.org/abs/2307.12813) of *Exposing the Troublemakers in Described Object Detection*, introducing the DOD task and the $D^3$ dataset, is available on arxiv. Check it out!
 
 [07/18/2023] We have released our Description Detection Dataset ($D^3$) and the first version of $D^3$ toolbox. You can download it now for your project.
@@ -33,7 +35,7 @@ Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a nex
 
 The $D^3$ dataset is meant for the Described Object Detection (DOD) task. In the image below we show the difference between Referring Expression Comprehension (REC), Object Detection/Open-Vocabulary Detection (OVD) and Described Object Detection (DOD). OVD detect object based on category name, and each category can have zero to multiple instances; REC grounds one region based on a language description, whether the object truly exits or not; DOD detect all instances on each image in the dataset, based on a flexible reference.
 
-![Dataset Highlight](assets/teaser.png "Highlight of the task & dataset")
+![Dataset Highlight](.assets/teaser.png "Highlight of the task & dataset")
 
 For more information on the characteristics of this dataset, please refer to our paper.
 
@@ -51,7 +53,7 @@ There are three ways to install $D^3$ toolbox, and the third one (with huggingfa
 
 ## Install with pip
 ```bash
-pip install d-cube
+pip install ddd-dataset
 ```
 ## Install from source
 ```bash
@@ -59,7 +61,7 @@ git clone https://github.com/shikra/d-cube.git
 # option 1: install it as a python package
 cd d-cube
 python -m pip install .
-# option 2: just put it in the root folder of your local repository
+# option 2: just put the d-cube/d_cube directory in the root directory of your local repository
 ```
 
 ## Via HuggingFace Datasets 🤗

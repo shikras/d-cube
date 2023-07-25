@@ -11,8 +11,7 @@ import numpy as np
 from pycocotools.coco import COCO
 from pycocotools.cocoeval import COCOeval
 
-from src.d3 import D3
-
+from d_cube import D3
 
 def eval_on_d3(pred_path, mode="pn", nbox_partition=None, lref_partition=False):
     assert mode in ("pn", "p", "n")

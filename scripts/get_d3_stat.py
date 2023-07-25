@@ -1,7 +1,7 @@
 import numpy as np
 
-from .data_util import plot_hist
-from .d3 import D3
+from d_cube.vis_util import plot_hist
+from d_cube import D3
 
 
 def vis_num_instance(cat_obj_count):

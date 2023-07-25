@@ -5,6 +5,7 @@
 - [Inference](#inference-on-d3)
 - [Key Concepts](#key-concepts-for-users)
 - [Evaluation](#evaluation)
+- [Dataset statistics](#dataset-statistics)
 
 ## Inference on $D^3$
 
@@ -29,7 +30,7 @@ ref_list = [sent['raw_sent'] for sent in sent_list]
 
 Concepts and structures of `anno`, `image`, `sent` and `group` are explained in [this part](#key-concepts-for-users).
 
-In [this directory](eval_examples) we provide the inference (and evaluation) script on some existing SOTA OVD/REC methods.
+In [this directory](eval_sota/) we provide the inference (and evaluation) script on some existing SOTA OVD/REC methods.
 
 ### Output Format
 When the inference is done, you need to save a JSON file in the format below (COCO standard output JSON form):
@@ -164,7 +165,7 @@ A Python dictionary where the keys are integers and the values are dictionaries 
 In this part, we introduce how to evaluate the performance and get the metric values given the prediction result of a JSON file.
 ### Write a Snippet in Your Code
 
-This is based on COCO API, and is quite simple:
+This is based on [cocoapi (pycocotools)](https://github.com/cocodataset/cocoapi/tree/master/PythonAPI), and is quite simple:
 
 ```python
 from pycocotools.coco import COCO
@@ -181,7 +182,7 @@ cocoEval.summarize()
 
 ### An Off-the-shelf Script
 
-We also provide [a script](eval_and_analysis_json.py) that can produce the evaluation results (and some additional analysis) in our paper, given a prediction JSON.
+We also provide [a script](scripts/eval_and_analysis_json.py) that can produce the evaluation results (and some additional analysis) in our paper, given a prediction JSON.
 You can use it by:
 ```shell
 python eval_and_analysis_json.py YOUR_PREDICTION_JSON_PATH
@@ -205,4 +206,8 @@ optional arguments:
 
 ## Evaluation Examples on SOTA Methods
 
-See [this directory](eval_examples/) for more.
+See [this directory](eval_sota/) for details. More scripts for evaluating popular SOTA OVD/REC/other methods on $D^3$ will be added later.
+
+## Dataset Statistics
+
+[A python script](scripts/get_d3_stat.py) is provided for calculating the statistics of $D^3$ or visualizing figures like histograms, word clouds, etc.

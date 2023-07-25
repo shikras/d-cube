@@ -2,6 +2,7 @@
 __author__ = "Chi Xie and Zhao Zhang"
 __maintainer__ = "Chi Xie"
 # this is the core of the d-cube toolkit
+import os
 import os.path as osp
 import json
 from collections import defaultdict
@@ -9,7 +10,8 @@ from collections import defaultdict
 import numpy as np
 from pycocotools import mask
 import cv2
-from tqdm import tqdm
+import matplotlib.pyplot as plt
+
 
 from .data_util import *
 
@@ -602,7 +604,7 @@ class D3:
 
     def data2coca(self, out_root, with_rev=False):
         group_infos = self.load_groups()
-        for group_info in tqdm(group_infos):
+        for group_info in group_infos:
             sent_ids = group_info["inner_sent_id"]
             if not with_rev:
                 sent_ids = [
@@ -741,13 +743,13 @@ class D3:
             sent_lens.append(len(isent_info["raw_sent"].split()))
 
         os.makedirs(save_dir, exist_ok=True)
-        plot_hist(
-            sent_lens,
-            bins=max(sent_lens) - min(sent_lens) + 1,
-            save_path=osp.join(save_dir, "words_hist.pdf"),
-            x="Lengths of descriptions",
-        )
-        generate_wordclouds(sent_raws, osp.join(save_dir, "word_clouds"))
+        # plot_hist(
+        #     sent_lens,
+        #     bins=max(sent_lens) - min(sent_lens) + 1,
+        #     save_path=osp.join(save_dir, "words_hist.pdf"),
+        #     x="Lengths of descriptions",
+        # )
+        # generate_wordclouds(sent_raws, osp.join(save_dir, "word_clouds"))
 
     def group_analysis(self, save_dir, with_rev=False):
         group_infos = self.load_groups()

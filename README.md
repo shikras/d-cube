@@ -9,8 +9,8 @@
     <br />
     <a href="doc.md"><strong> [Doc 📚]</strong></a>
     <a href="https://huggingface.co/datasets/zbrl/d-cube"><strong> [HuggingFace 🤗]</strong></a>
-    <a href="https://arxiv.org/pdf/2307.12813.pdf"><strong> [Paper-DOD 📄] </strong></a>
-      <a href="https://arxiv.org/pdf/2307.12813.pdf"><strong> [Paper-GRES 📄] »</strong></a>
+    <a href="https://arxiv.org/abs/2307.12813"><strong> [Paper-DOD 📄] </strong></a>
+      <a href="https://arxiv.org/abs/2305.12452"><strong> [Paper-GRES 📄] </strong></a>
     <br />
   </p>
 </p>
@@ -25,8 +25,6 @@ Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a nex
 [07/25/2023] The [paper preprint](https://arxiv.org/abs/2307.12813) of *Exposing the Troublemakers in Described Object Detection*, introducing the DOD task and the $D^3$ dataset, is available on arxiv. Check it out!
 
 [07/18/2023] We have released our Description Detection Dataset ($D^3$) and the first version of $D^3$ toolbox. You can download it now for your project.
-
-[07/25/2023] The [paper preprint](https://arxiv.org/abs/2307.12813) of *Exposing the Troublemakers in Described Object Detection*, introducing the DOD task and the $D^3$ dataset, is available on arxiv. Check it out!
 
 [07/14/2023] The [paper](https://arxiv.org/abs/2305.12452) of our GRES has been accepted by ICCV-2023.
 

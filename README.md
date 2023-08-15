@@ -3,7 +3,7 @@
 <p align="center">
   <a href="#">
 <img src=".assets/d-cube_logo.png" alt="Logo" width="310"></a>
-  <h4 align="center">A detection dataset with class names characterized by intricate and flexible expressions</h4>
+  <h4 align="center">A high-quality segmentation/detection dataset with class names characterized by intricate and flexible expressions</h4>
     <p align="center">
     The repo is the toolbox for <b>D<sup>3</sup></b>
     <br />

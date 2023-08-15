@@ -9,7 +9,8 @@
     <br />
     <a href="doc.md"><strong> [Doc 📚]</strong></a>
     <a href="https://huggingface.co/datasets/zbrl/d-cube"><strong> [HuggingFace 🤗]</strong></a>
-    <a href="https://arxiv.org/pdf/2307.12813.pdf"><strong> [Papers 📄] »</strong></a>
+    <a href="https://arxiv.org/pdf/2307.12813.pdf"><strong> [Paper-DOD 📄] </strong></a>
+      <a href="https://arxiv.org/pdf/2307.12813.pdf"><strong> [Paper-GRES 📄] »</strong></a>
     <br />
   </p>
 </p>
@@ -24,6 +25,10 @@ Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a nex
 [07/25/2023] The [paper preprint](https://arxiv.org/abs/2307.12813) of *Exposing the Troublemakers in Described Object Detection*, introducing the DOD task and the $D^3$ dataset, is available on arxiv. Check it out!
 
 [07/18/2023] We have released our Description Detection Dataset ($D^3$) and the first version of $D^3$ toolbox. You can download it now for your project.
+
+[07/25/2023] The [paper preprint](https://arxiv.org/abs/2307.12813) of *Exposing the Troublemakers in Described Object Detection*, introducing the DOD task and the $D^3$ dataset, is available on arxiv. Check it out!
+
+[07/14/2023] The [paper](https://arxiv.org/abs/2305.12452) of our GRES has been accepted by ICCV-2023.
 
 # Contents
 - [Dataset Highlight](#task-and-dataset-highlight)
@@ -92,6 +97,13 @@ If you use our $D^3$ dataset, this toolbox, or otherwise find our work valuable,
   title={Exposing the Troublemakers in Described Object Detection},
   author={Xie, Chi and Zhang, Zhao and Wu, Yixuan and Zhu, Feng and Zhao, Rui and Liang, Shuang},
   journal={arXiv preprint arXiv:2307.12813},
+  year={2023}
+}
+
+@inproceedings{wu2023gres,
+  title={Advancing Referring Expression Segmentation Beyond Single Image},
+  author={Wu, Yixuan and Zhang, Zhao and Chi, Xie and Zhu, Feng and Zhao, Rui},
+  booktitle={International Conference on Computer Vision (ICCV)},
   year={2023}
 }
 ```

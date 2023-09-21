@@ -3,7 +3,7 @@
 <p align="center">
   <a href="#">
 <img src=".assets/d-cube_logo.png" alt="Logo" width="310"></a>
-  <h4 align="center">A segmentation/detection dataset with class names characterized by intricate and flexible expressions</h4>
+  <h4 align="center">A detection/segmentation dataset with class names characterized by intricate and flexible expressions</h4>
     <p align="center">
     The repo is the toolbox for <b>D<sup>3</sup></b>
     <br />
@@ -100,7 +100,7 @@ If you use our $D^3$ dataset, this toolbox, or otherwise find our work valuable,
 
 @inproceedings{wu2023gres,
   title={Advancing Referring Expression Segmentation Beyond Single Image},
-  author={Wu, Yixuan and Zhang, Zhao and Chi, Xie and Zhu, Feng and Zhao, Rui},
+  author={Wu, Yixuan and Zhang, Zhao and Xie, Chi and Zhu, Feng and Zhao, Rui},
   booktitle={International Conference on Computer Vision (ICCV)},
   year={2023}
 }

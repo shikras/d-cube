@@ -20,13 +20,15 @@ Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a nex
 
 
 # News
-[07/25/2023] This toolkit is available on PyPI now. You can install this repo with `pip install ddd-dataset`.
+- [09/22/2023] Our DOD [paper](https://arxiv.org/abs/2307.12813) just got accepted by NeurIPS 2023! :fire:
 
-[07/25/2023] The [paper preprint](https://arxiv.org/abs/2307.12813) of *Exposing the Troublemakers in Described Object Detection*, introducing the DOD task and the $D^3$ dataset, is available on arxiv. Check it out!
+- [07/25/2023] This toolkit is available on PyPI now. You can install this repo with `pip install ddd-dataset`.
 
-[07/18/2023] We have released our Description Detection Dataset ($D^3$) and the first version of $D^3$ toolbox. You can download it now for your project.
+- [07/25/2023] The [paper preprint](https://arxiv.org/abs/2307.12813) of *Exposing the Troublemakers in Described Object Detection*, introducing the DOD task and the $D^3$ dataset, is available on arxiv. Check it out!
 
-[07/14/2023] The [paper](https://arxiv.org/abs/2305.12452) of our GRES has been accepted by ICCV-2023.
+- [07/18/2023] We have released our Description Detection Dataset ($D^3$) and the first version of $D^3$ toolbox. You can download it now for your project.
+
+- [07/14/2023] Our GRES [paper](https://arxiv.org/abs/2305.12452) has been accepted by ICCV 2023.
 
 # Contents
 - [Dataset Highlight](#task-and-dataset-highlight)
@@ -91,10 +93,10 @@ img_path = all_img_info[0]["file_name"]  # obtain one image path so you can load
 # Citation
 If you use our $D^3$ dataset, this toolbox, or otherwise find our work valuable, please cite [our paper](https://arxiv.org/abs/2307.12813):
 ```bibtex
-@article{xie2023DOD,
+@inproceedings{xie2023DOD,
   title={Exposing the Troublemakers in Described Object Detection},
   author={Xie, Chi and Zhang, Zhao and Wu, Yixuan and Zhu, Feng and Zhao, Rui and Liang, Shuang},
-  journal={arXiv preprint arXiv:2307.12813},
+  booktitle={Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS)},
   year={2023}
 }
 

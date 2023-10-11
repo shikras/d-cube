@@ -9,8 +9,9 @@
     <br />
     <a href="doc.md"><strong> [Doc 📚]</strong></a>
     <a href="https://huggingface.co/datasets/zbrl/d-cube"><strong> [HuggingFace 🤗]</strong></a>
-    <a href="https://arxiv.org/abs/2307.12813"><strong> [Paper-DOD 📄] </strong></a>
-      <a href="https://arxiv.org/abs/2305.12452"><strong> [Paper-GRES 📄] </strong></a>
+    <a href="https://arxiv.org/abs/2307.12813"><strong> [Paper (DOD) 📄] </strong></a>
+    <a href="https://arxiv.org/abs/2305.12452"><strong> [Paper (GRES) 📄] </strong></a>
+    <a href="https://github.com/Charles-Xie/awesome-described-object-detection"><strong> [Awesome-DOD 🕶️] </strong></a>
     <br />
   </p>
 </p>
@@ -20,6 +21,8 @@ Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a nex
 
 
 # News
+- [10/12/2023] We released an [awesome-described-object-detection](https://github.com/Charles-Xie/awesome-described-object-detection) list to collect and track related works. The paper is renamed as *Described Object Detection: Liberating Object Detection with Flexible Expressions* ([arxiv](https://arxiv.org/abs/2307.12813)).
+
 - [09/22/2023] Our DOD [paper](https://arxiv.org/abs/2307.12813) just got accepted by NeurIPS 2023! :fire:
 
 - [07/25/2023] This toolkit is available on PyPI now. You can install this repo with `pip install ddd-dataset`.
@@ -38,7 +41,7 @@ Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a nex
 
 # Task and Dataset Highlight
 
-The $D^3$ dataset is meant for the Described Object Detection (DOD) task. In the image below we show the difference between Referring Expression Comprehension (REC), Object Detection/Open-Vocabulary Detection (OVD) and Described Object Detection (DOD). OVD detect object based on category name, and each category can have zero to multiple instances; REC grounds one region based on a language description, whether the object truly exits or not; DOD detect all instances on each image in the dataset, based on a flexible reference.
+The $D^3$ dataset is meant for the Described Object Detection (DOD) task. In the image below we show the difference between Referring Expression Comprehension (REC), Object Detection/Open-Vocabulary Detection (OVD) and Described Object Detection (DOD). OVD detect object based on category name, and each category can have zero to multiple instances; REC grounds one region based on a language description, whether the object truly exits or not; DOD detect all instances on each image in the dataset, based on a flexible reference. Related works are tracked in the [awesome-DOD](https://github.com/Charles-Xie/awesome-described-object-detection) list.
 
 ![Dataset Highlight](.assets/teaser.png "Highlight of the task & dataset")
 
@@ -94,7 +97,7 @@ img_path = all_img_info[0]["file_name"]  # obtain one image path so you can load
 If you use our $D^3$ dataset, this toolbox, or otherwise find our work valuable, please cite [our paper](https://arxiv.org/abs/2307.12813):
 ```bibtex
 @inproceedings{xie2023DOD,
-  title={Exposing the Troublemakers in Described Object Detection},
+  title={Described Object Detection: Liberating Object Detection with Flexible Expressions},
   author={Xie, Chi and Zhang, Zhao and Wu, Yixuan and Zhu, Feng and Zhao, Rui and Liang, Shuang},
   booktitle={Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS)},
   year={2023}
@@ -107,3 +110,5 @@ If you use our $D^3$ dataset, this toolbox, or otherwise find our work valuable,
   year={2023}
 }
 ```
+
+More works related to Described Object Detection are tracked in this list: [awesome-described-object-detection](https://github.com/Charles-Xie/awesome-described-object-detection).

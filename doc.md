@@ -1,11 +1,16 @@
 # $D^3$ Toolkit Documentation
 
+
 ## Table of Contents
 
 - [Inference](#inference-on-d3)
 - [Key Concepts](#key-concepts-for-users)
-- [Evaluation](#evaluation)
+- [Evaluation Settings](#evaluation-settings)
+- [Evaluation Code and Examples](#evaluation-code-and-examples)
 - [Dataset statistics](#dataset-statistics)
+
+
+
 
 ## Inference on $D^3$
 
@@ -22,7 +27,7 @@ img_path = all_img_info[0]["file_name"]  # obtain one image path so you can load
 group_ids = d3.get_group_ids(img_ids=[img_id])  # get the group ids by passing anno ids, image ids, etc.
 sent_ids = d3.get_sent_ids(group_ids=group_ids)  # get the sentence ids by passing image ids, group ids, etc.
 sent_list = d3.load_sents(sent_ids=sent_ids)
-ref_list = [sent['raw_sent'] for sent in sent_list]
+ref_list = [sent['raw_sent'] for sent in sent_list]  # list[str]
 # use these language references in `ref_list` as the references to your REC/OVD/DOD model
 
 # save the result to a JSON file
@@ -32,13 +37,15 @@ Concepts and structures of `anno`, `image`, `sent` and `group` are explained in 
 
 In [this directory](eval_sota/) we provide the inference (and evaluation) script on some existing SOTA OVD/REC methods.
 
+
+
 ### Output Format
 When the inference is done, you need to save a JSON file in the format below (COCO standard output JSON form):
 ```json
 [
     {
         "category_id": "int, the value of sent_id, range [1, 422]",
-        "bbox": "[x1, y1, w, h], predicted by your model, same as COCO result format",
+        "bbox": "list[int], [x1, y1, w, h], predicted by your model, same as COCO result format, absolute value in the range of [w, h, w, h]",
         "image_id": "int, img_id, can be 0, 1, 2, ....",
         "score": "float, predicted by your model, no restriction on its absolute value range"
     }
@@ -46,12 +53,10 @@ When the inference is done, you need to save a JSON file in the format below (CO
 ```
 This JSON file should contain a list, where each item in the list is a dictionary of one detection result.
 
-With this JSON saved, you can evaluate the JSON in the next step. See [the evaluation step](#evaluation).
+With this JSON saved, you can evaluate the JSON in the next step. See [the evaluation step](#evaluation-code-and-examples).
 
 
-### Intra- or Inter-Group Settings
 
-The default evaluation protocol is the intra-group setting, where only a certain references are considerred for each image. Inter-group setting, where all references in the dataset are considerred for each image, can be easily achieved by changing `sent_ids = d3.get_sent_ids(group_ids=group_ids)` to `sent_ids = d3.get_sent_ids()`. This will use all the sentences in the dataset, rather than a few sentences in the group that this image belongs to.
 
 
 ## Key Concepts for Users
@@ -116,7 +121,7 @@ A Python dictionary where the keys are integers and the values are dictionaries 
 * `id`: an integer representing the ID of the sentence.
 * `anno_id`: a list of integers representing the IDs of annotations associated with this sentence.
 * `group_id`: a list of integers representing the IDs of groups associated with this sentence.
-* `is_negative`: a boolean indicating whether this sentence is anti-expression or not.
+* `is_negative`: a boolean indicating whether this sentence is *absence expression* or not. `True` means *absence expression*.
 * `raw_sent`: a string representing the raw text of the sentence in English.
 * `raw_sent_zh`: a string representing the raw text of the sentence in Chinese.
 
@@ -137,7 +142,7 @@ A Python dictionary where the keys are integers and the values are dictionaries 
 A Python dictionary where the keys are integers and the values are dictionaries with the following key-value pairs:
 
 * `id`: an integer representing the ID of the group.
-* `pos_sent_id`: a list of integers representing the IDs of  sentences that has referred obejct in the group.
+* `pos_sent_id`: a list of integers representing the IDs of sentences that has referred obejct in the group.
 * `inner_sent_id`: a list of integers representing the IDs of sentences belonging to this group.
 * `outer_sent_id`: a list of integers representing the IDs of outer-group sentences that has referred obejct in the group.
 * `img_id`: a list of integers representing the IDs of images of this group.
@@ -160,9 +165,61 @@ A Python dictionary where the keys are integers and the values are dictionaries 
 }
 ```
 
-## Evaluation
+
+
+
+
+## Evaluation Settings
+
+
+### Intra- or Inter-Group Settings
+
+The default evaluation protocol is the intra-group setting, where only a certain references are evaluated for each image.
+
+In the $D^3$ dataset, images are collected for different groups (scenarios), and the categories (descriptions) are designed based on the scenarios. For the intra-group setting, each image are only evaluated with the descriptions from the group the image belongs to. We call this **intra-scenario setting**.
+
+Note that each category is actually annotated on each image (with positive or negative instances).
+So you can also evaluate all categories on all images, just like traditional detection datasets. We call this **inter-scenario setting**.
+This is quite challenging for the DOD task as this will produce many false positive instances on current methods.
+
+For intra-group evaluation, you should use:
+```
+sent_ids = d3.get_sent_ids(group_ids=group_ids)
+# only get the refs (sents) for the group the image belongs to, which is usually 4
+```
+
+For inter-group evaluation, change the correponding code to:
+
+```
+sent_ids = d3.get_sent_ids()
+# get all the refs in the dataset
+```
+
+This will use all the sentences in the dataset, rather than a few sentences in the group that this image belongs to.
+
+This is the only difference in the implentation and evaluation. No further code changes need to be applied.
+
+For more information, you can refer to the Section 3.4 of the DOD paper.
+
+
+### FULL, PRES and ABS
+
+FULL, PRES and ABS means the full descriptions (422 categories), presence descriptions (316 categories) and absence descriptions (106 categories).
+
+The meaning of absence descriptions are the descriptions involving the absence of some concepts, like lacking certain relationships, attributes or objects. For example, descriptions like "dog *without* leash", "person *without* helmet" and "a hat that is *not* blue" are absence ones.
+Similary, the descriptions involving *only* the presence of some concepts are presence descriptions.
+
+Most existing REC datasets have presence descriptions but few absence descriptions.
+
+For more details and the meaning of evaluating absence descriptions, please refer to Section 3.1 of the DOD paper.
+
+
+
+
+## Evaluation Code and Examples
 
 In this part, we introduce how to evaluate the performance and get the metric values given the prediction result of a JSON file.
+
 ### Write a Snippet in Your Code
 
 This is based on [cocoapi (pycocotools)](https://github.com/cocodataset/cocoapi/tree/master/PythonAPI), and is quite simple:
@@ -204,10 +261,15 @@ optional arguments:
   --xyxy2xywh          transform box coords from xyxy to xywh
 ```
 
-## Evaluation Examples on SOTA Methods
 
-See [this directory](eval_sota/) for details. More scripts for evaluating popular SOTA OVD/REC/other methods on $D^3$ will be added later.
+### Evaluation Examples on SOTA Methods
+
+See [this directory](eval_sota/) for details. We include the evaluation scripts of some methods there.
+
+
 
 ## Dataset Statistics
 
 [A python script](scripts/get_d3_stat.py) is provided for calculating the statistics of $D^3$ or visualizing figures like histograms, word clouds, etc.
+
+The specific statistics of the dataset are available in Section 3.3 of the DOD paper.

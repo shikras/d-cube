@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name='ddd-dataset',
-    version='0.1.0',
+    version='0.1.1',
     author='Chi Xie',
     author_email='chixie.personal@gmail.com',
     description='Toolkit for Description Detection Dataset ($D^3$)',

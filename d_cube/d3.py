@@ -513,7 +513,7 @@ class D3:
             num_img_sent += len(cur_sent_set)
         stat_dict["num_img_sent"] = num_img_sent
 
-        # Number of anti img-sent pair
+        # Number of absence img-sent pair
         num_anti_img_sent = 0
         for img_id in self.data["images"].keys():
             anno_ids = self.get_anno_ids(img_ids=img_id)

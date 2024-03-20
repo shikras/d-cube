@@ -17,7 +17,11 @@
 </p>
 
 ***
-Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a next-generation object detection dataset. Unlike traditional detection datasets, the class names of the objects are no longer simple nouns or noun phrases, but rather complex and descriptive, such as `a dog not being held by a leash`. For each image in the dataset, any object that matches the description is annotated. The dataset provides annotations such as bounding boxes and finely crafted instance masks. We believe it will contribute to computer vision and vision-language communities.
+Description Detection Dataset ($D^3$, /dikju:b/) is an attempt at creating a next-generation object detection dataset.
+Unlike traditional detection datasets, the class names of the objects are no longer just simple nouns or noun phrases, but rather complex and descriptive descriptions, such as `a dog not being held by a leash`.
+For each image in the dataset, any object that matches the description is annotated.
+The dataset provides annotations such as bounding boxes and finely crafted instance masks.
+We believe it will contribute to computer vision and vision-language communities.
 
 
 

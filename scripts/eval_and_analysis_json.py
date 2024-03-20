@@ -144,9 +144,9 @@ def transform_json_boxes(pred_path):
 
 
 if __name__ == "__main__":
-    IMG_ROOT = "/Users/xiechi/Development/DOD/d3_dataset/d3_release/"
-    JSON_ANNO_PATH = "/Users/xiechi/Development/DOD/d3_dataset/d3_release/d3_json/"
-    PKL_ANNO_PATH = "/Users/xiechi/Development/DOD/d3_dataset/d3_release/d3_pkl/"
+    IMG_ROOT = None  # set here
+    JSON_ANNO_PATH = None  # set here
+    PKL_ANNO_PATH = None  # set here
     assert IMG_ROOT is not None, "Please set IMG_ROOT in the script first"
     assert JSON_ANNO_PATH is not None, "Please set JSON_ANNO_PATH in the script first"
     assert PKL_ANNO_PATH is not None, "Please set PKL_ANNO_PATH in the script first"

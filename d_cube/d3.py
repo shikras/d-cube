@@ -159,7 +159,7 @@ class D3:
         out_ids_set = set()
         if anno_ids:
             for ianno_id in anno_ids:
-                out_ids_set.add(self.data["annotations"][ianno_id]["img_id"])
+                out_ids_set.add(self.data["annotations"][ianno_id]["image_id"])
 
         if group_ids:
             for group_id in group_ids:
